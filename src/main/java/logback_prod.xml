@@ -1,0 +1,33 @@
+
+<configuration>
+    
+    <appender name="main" class="ch.qos.logback.core.FileAppender">
+        <file>unitofwork-application.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{64}.%method [%line] - %msg [%thread] %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="warning">
+        <appender-ref ref="main" />
+    </root>
+    <logger name="com.googlecode.flyway" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate.SQL" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate.stat" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.apache" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.mortbay" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+</configuration>

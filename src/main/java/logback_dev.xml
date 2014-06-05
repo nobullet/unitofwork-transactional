@@ -1,0 +1,34 @@
+
+<configuration>
+
+    <appender name="main" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+        ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <!-- <pattern>%d{HH:mm:ss.SSS} [%thread] %C{100}.%M %ex%n %-5level %logger{36} - %msg%n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{64}.%method [%line] - %msg [%thread] %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="main" />
+    </root>
+    <logger name="com.googlecode.flyway" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate.SQL" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.hibernate.stat" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.apache" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+    <logger name="org.mortbay" level="warn">
+        <appender-ref ref="main"/>
+    </logger>
+</configuration>
