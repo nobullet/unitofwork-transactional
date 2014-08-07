@@ -23,6 +23,7 @@ public class Routes implements ApplicationRoutes {
     public void init(Router router) {
         router.GET().route("/userUOW.json").with(ApplicationController.class, "userUOW");
         router.GET().route("/userT.json").with(ApplicationController.class, "userT");
+        router.GET().route("/userNTNUOW.json").with(ApplicationController.class, "userNTNUOW");
 
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)

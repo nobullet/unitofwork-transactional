@@ -25,6 +25,10 @@ public class UserService {
         this.logger = logger;
     }
 
+    public User getUserOneNTNUOW() {
+        return userDao.getByName("one");
+    }
+    
     @UnitOfWork
     public User getUserOneUOW() {
         return userDao.getByName("one");

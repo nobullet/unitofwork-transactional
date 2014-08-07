@@ -26,19 +26,23 @@ public class ApplicationController {
 
     // Unit of Work.
     public Result userUOW() {
-        return Results.json()
-                .addHeader("Cache-Control", "no-cache, must-revalidate")
-                .addHeader("Pragma", "no-cache")
-                .addHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT")
-                .render(userService.getUserOneUOW());
+        return noCacheHeaders(Results.json()).render(userService.getUserOneUOW());
     }
 
     // Transactional.
     public Result userT() {
-        return Results.json()
-                .addHeader("Cache-Control", "no-cache, must-revalidate")
+        return noCacheHeaders(Results.json()).render(userService.getUserOneT());
+    }
+
+    // Not Transactional nor UnitOfWork.
+    public Result userNTNUOW() {
+        return noCacheHeaders(Results.json()).render(userService.getUserOneNTNUOW());
+    }
+
+    // Add no cache headers.
+    static Result noCacheHeaders(Result result) {
+        return result.addHeader("Cache-Control", "no-cache, must-revalidate")
                 .addHeader("Pragma", "no-cache")
-                .addHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT")
-                .render(userService.getUserOneT());
+                .addHeader("Expires", "Sat, 26 Jul 1997 05:00:00 GMT");
     }
 }
